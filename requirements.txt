@@ -1,0 +1,11 @@
+langchain
+langchain-community
+chromadb
+fastapi
+uvicorn
+pydantic
+python-dotenv
+duckduckgo-search
+arxiv
+sentence-transformers
+langchain-groq
