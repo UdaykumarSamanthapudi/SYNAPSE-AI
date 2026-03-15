@@ -1,7 +1,5 @@
-
-
-def PathDoesntExistException(Exception):
+class PathDoesntExistException(Exception):
     pass
 
-def DoesntSupportFormatException(Exception):
+class DoesntSupportFormatException(Exception):
     pass

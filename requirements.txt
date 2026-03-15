@@ -9,3 +9,4 @@ duckduckgo-search
 arxiv
 sentence-transformers
 langchain-groq
+tavily

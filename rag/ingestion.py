@@ -12,13 +12,13 @@ def load_document(file_path:str):
         file_name=Path(file_path).stem
         if(file_path.endswith(".pdf") or file_path.endswith(".PDF")):
             pdf_doc=PyPDFLoader(file_path=file_path)
-            docs=pdf_doc.lazy_load()
+            docs=pdf_doc.load()
             logger.info(f"{file_name}.pdf has been successfully loaded")
             return list(docs)
         
         elif(file_path.endswith(".txt") or file_path.endswith(".TXT")):
             txt_doc=TextLoader(file_path=file_path)
-            docs=txt_doc.lazy_load()
+            docs=txt_doc.load()
             logger.info(f"{file_name}.txt has been successfully loaded")
             return list(docs)
         else:

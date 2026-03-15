@@ -1,4 +1,4 @@
-from langchain_community.vectorstores import Chroma
+from langchain_chroma import Chroma
 from config.settings import embedding_model,vector_path
 from rag.ingestion import process_document
 from app import logger
@@ -16,4 +16,4 @@ vector_store = Chroma(
     embedding_function=embedding_model
 )
 
-retriever = vector_store.as_retriever(kwargs={"k":4})
+retriever = vector_store.as_retriever(search_kwargs={"k":4})
