@@ -3,13 +3,14 @@ from langchain_chroma import Chroma
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_core.output_parsers import StrOutputParser
 
-
-def retrieve_documents(query:str):
-    vector_store = Chroma(
+# Cache the vector store once so that it wont load
+_vector_store = Chroma(
     persist_directory=vector_path,
     embedding_function=embedding_model
 )
-    relevant_docs=vector_store.similarity_search(query,k=3)
+
+def retrieve_documents(query:str):
+    relevant_docs = _vector_store.similarity_search(query, k=3)
     return relevant_docs
 
 def rag_answer(query:str):
