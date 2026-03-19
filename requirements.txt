@@ -12,7 +12,7 @@ langchain-groq
 tavily
 langchain-huggingface
 langchain-chroma
-
+python==3.11
 # Database drivers
 pymysql
 mysqlclient

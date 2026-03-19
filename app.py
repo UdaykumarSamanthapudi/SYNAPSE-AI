@@ -18,19 +18,13 @@ logging.basicConfig(
 def chat(request: ChatRequest) -> dict:
     try:
         logger.info(f"Received query from session {request.session_id}: {request.message}")
-        
-        # If user provides a custom db_url, prepend it to the query context
-        query = request.message
-        if request.db_url:
-            # Add db_url context to help the LLM use the correct database
-            query = f"[User's Database: {request.db_url}] {request.message}"
 
         agent_response = run_agent(
-            query=query,
-            session_id=request.session_id
+            query=request.message,
+            session_id=request.session_id,
+            db_url=request.db_url or None,
         )
 
-        # Handle agent response - extract content properly
         if isinstance(agent_response, dict):
             if "output" in agent_response:
                 final_response = agent_response["output"]
@@ -58,7 +52,7 @@ async def ingest_document(file: UploadFile = File(...)) -> dict:
     After ingestion, you can search the document using /chat with "search my documents".
     """
     try:
-        # Save the uploaded file temporarily
+        # Saving the uploaded file temporarily
         file_path = f"temp_{file.filename}"
         with open(file_path, "wb") as f:
             content = await file.read()

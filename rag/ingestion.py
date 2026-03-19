@@ -1,10 +1,11 @@
+import logging
 from langchain_community.document_loaders import PyPDFLoader,TextLoader
 import os
 from exceptions.custom_exceptions import PathDoesntExistException,DoesntSupportFormatException
-import logging
 from pathlib import Path
 from langchain_text_splitters import RecursiveCharacterTextSplitter
-from app import logger
+
+logger = logging.getLogger(__name__)
 
 
 def load_document(file_path:str):
