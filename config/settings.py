@@ -17,3 +17,7 @@ embedding_model = HuggingFaceEmbeddings(
 
 
 vector_path="./vector_store"
+
+# Default database URL for SQL queries
+# Can be overridden by user in query (e.g., "query my postgres db at localhost:5432/mydb")
+DEFAULT_DATABASE_URL = os.getenv("DATABASE_URL", "sqlite:///knowledge.db")

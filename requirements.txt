@@ -10,3 +10,10 @@ arxiv
 sentence-transformers
 langchain-groq
 tavily
+langchain-huggingface
+langchain-chroma
+
+# Database drivers
+pymysql
+mysqlclient
+psycopg2-binary
