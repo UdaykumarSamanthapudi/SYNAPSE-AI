@@ -7,6 +7,11 @@ from database.vector_store import create_vector_store
 
 app = FastAPI(title="SYNAPSE-AI PROJECT")
 
+@app.get("/")
+def home():
+    return {"message": "Backend is running"}
+
+
 logger = logging.getLogger(__name__)
 
 logging.basicConfig(
