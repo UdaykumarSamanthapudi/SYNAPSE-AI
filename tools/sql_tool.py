@@ -28,7 +28,7 @@ def query_database(query: str, db_url: Optional[str] = None):
     schema = db.get_table_info()
     database_name = db_url.split('/')[-1] if '/' in db_url else db_url
 
-    # Step 1 — Generate SQL from natural language
+    # Step 1 — Generating  SQL from natural language
     query_prompt = ChatPromptTemplate.from_template(
         """You are an expert SQL developer.
 Convert the user question into a valid SQL query.
@@ -78,9 +78,9 @@ def _run_and_format(db_url: str, sql: str) -> str:
             rows = result.fetchall()
 
         if not rows:
-            return "✅ Query executed successfully — no rows returned."
+            return "Query executed successfully — no rows returned."
 
-        # Build markdown table
+        # Building markdown table
         header = "| " + " | ".join(str(c) for c in columns) + " |"
         separator = "| " + " | ".join("---" for _ in columns) + " |"
         data_rows = [

@@ -6,7 +6,7 @@ import logging
 
 logger = logging.getLogger(__name__)
 
-# Must match the collection_name used in vector_store.py during ingestion
+#  match the collection_name used in vector_store.py during ingestion
 COLLECTION_NAME = "synapse_docs"
 
 
