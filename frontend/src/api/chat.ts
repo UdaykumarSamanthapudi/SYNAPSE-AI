@@ -1,5 +1,7 @@
 import { parseJsonSafe } from './http'
 
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:8000'
+
 export type ChatRequest = {
   session_id: string
   message: string
@@ -15,7 +17,7 @@ export type ChatFailure = {
 }
 
 export async function postChat(payload: ChatRequest): Promise<ChatSuccess> {
-  const res = await fetch('/chat', {
+  const res = await fetch(`${API_BASE_URL}/chat`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(payload),
@@ -36,4 +38,3 @@ export async function postChat(payload: ChatRequest): Promise<ChatSuccess> {
 
   return data as ChatSuccess
 }
-

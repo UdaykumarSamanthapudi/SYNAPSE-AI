@@ -1,5 +1,7 @@
 import { parseJsonSafe } from './http'
 
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:8000'
+
 export type IngestSuccess = {
   status: 'success'
   message: string
@@ -14,7 +16,7 @@ export async function postIngest(file: File): Promise<IngestSuccess> {
   const form = new FormData()
   form.append('file', file)
 
-  const res = await fetch('/ingest', {
+  const res = await fetch(`${API_BASE_URL}/ingest`, {
     method: 'POST',
     body: form,
   })
@@ -35,4 +37,3 @@ export async function postIngest(file: File): Promise<IngestSuccess> {
 
   return data as IngestSuccess
 }
-
