@@ -11,9 +11,13 @@ from fastapi.middleware.cors import CORSMiddleware
 
 app = FastAPI(title="SYNAPSE-AI PROJECT")
 
+
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  # later restrict to your domain
+    allow_origins=[
+        "http://localhost:5173",
+        "https://your-app.vercel.app",  # ← replace with your actual Vercel URL
+    ],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
