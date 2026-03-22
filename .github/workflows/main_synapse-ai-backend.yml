@@ -63,4 +63,4 @@ jobs:
         with:
           app-name: 'synapse-ai-backend'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_556A8926B5FF42BD85C6F1BCF748AA7A }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_7125C652DBED475D946B5A2B9BB1173E }}
