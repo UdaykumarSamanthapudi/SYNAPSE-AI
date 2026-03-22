@@ -6,6 +6,7 @@ chromadb
 fastapi
 uvicorn
 pydantic
+gunicorn
 python-multipart
 python-dotenv
 aiofiles
@@ -19,5 +20,4 @@ langchain-chroma
 sqlalchemy
 # Database drivers
 pymysql
-mysqlclient
 psycopg2-binary
