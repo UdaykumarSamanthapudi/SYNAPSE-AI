@@ -1,4 +1,5 @@
 __pycache__/
+**/__pycache__/
 *.pyc
 *.pyo
 .env
@@ -14,6 +15,5 @@ knowledge.db
 *.pt
 *.bin
 *.onnx
-models/
 *.log
 chroma_db/
