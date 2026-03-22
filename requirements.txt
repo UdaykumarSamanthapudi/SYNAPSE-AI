@@ -6,6 +6,7 @@ chromadb
 fastapi
 uvicorn
 pydantic
+python-multipart
 python-dotenv
 aiofiles
 duckduckgo-search

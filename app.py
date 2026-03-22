@@ -4,12 +4,33 @@ import os
 from models.ChatRequest import ChatRequest
 from agents.agent_executor import run_agent
 from database.vector_store import create_vector_store
+from fastapi.staticfiles import StaticFiles
+from fastapi.responses import FileResponse
+from fastapi.middleware.cors import CORSMiddleware
+
 
 app = FastAPI(title="SYNAPSE-AI PROJECT")
 
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],  # later restrict to your domain
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
+# Serve frontend static files
+if os.path.exists("frontend"):
+    app.mount("/frontend", StaticFiles(directory="frontend"), name="frontend")
+# Serve index.html at root (optional but best UX)
+
 @app.get("/")
-def home():
+def serve_home():
+    if os.path.exists("frontend/index.html"):
+        return FileResponse("frontend/index.html")
     return {"message": "Backend is running"}
+
+
 
 
 logger = logging.getLogger(__name__)
